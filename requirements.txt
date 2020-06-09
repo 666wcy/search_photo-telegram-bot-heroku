@@ -1,0 +1,11 @@
+beautifulsoup4==4.9.1
+bs4==0.0.1
+certifi==2020.4.5.2
+chardet==3.0.4
+idna==2.9
+pyTelegramBotAPI==3.7.1
+redis==3.5.3
+requests==2.23.0
+six==1.15.0
+soupsieve==2.0.1
+urllib3==1.25.9
