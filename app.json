@@ -1,24 +1,17 @@
 {
-  "name": "Seach photo bot",
-  "description": "seach a photo through telegram",
-  "repository": "https://github.com/666wcy/seach_photo-telegram-bot-heroku",
-  "keywords": [
-    "telegram",
-    "seachphoto",
-
-  ],
-
-  "env": {
-    "TELEGRAM_TOKEN": {
-      "description": "Your bot token, as a string.",
-      "value": ""
-    }
-  },
-
-  "buildpacks": [
-   { 
-   "url": "heroku/python"
-   }
-  ]
-
+	"name": "Search photo bot",
+	"description": "Run telegram bot on heroku",
+	"repository": "https://github.com/666wcy/seach_photo-telegram-bot-heroku",
+	"keywords": ["telegram"],
+	"env": {
+		"TELEGRAM_TOKEN": {
+			"description": "TELEGRAM_TOKEN you get from bot_father",
+			"value": ""
+		}
+	},
+	"buildpacks": [
+		{
+			"url": "heroku/python"
+		}
+	]
 }
