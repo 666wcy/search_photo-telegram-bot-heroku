@@ -10,6 +10,8 @@
 
 [ascii2d](https://ascii2d.net/)
 
+[iqdb](http://www.iqdb.org/)
+
 
 
 **安装方法:**

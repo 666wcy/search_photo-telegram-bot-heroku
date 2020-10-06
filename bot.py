@@ -10,12 +10,126 @@ import telebot
 import os
 
 
+
 # Example of your code beginning
 #           Config vars
 token = os.environ['TELEGRAM_TOKEN']
 
 session = requests.session()
 bot = telebot.TeleBot(token)
+
+
+@bot.message_handler(commands=['saucenao'])
+def send_saucenao(message):
+    bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+    bot.register_next_step_handler(message, get_saucenao)
+
+def get_saucenao(message):
+    print(message)
+
+    if message.text=="/cancel":
+        bot.send_message(chat_id=message.chat.id, text="已退出搜图模式", parse_mode="MarkdownV2")
+        return
+    if message.content_type!="photo":
+        bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+
+        bot.register_next_step_handler(message, get_ascii2d)
+        return
+    else:
+        url = bot.get_file_url(message.photo[-1].file_id)
+        print(url)
+        saucenao(url, message.chat.id)
+        bot.send_message(chat_id=message.chat.id, text="搜索完成", parse_mode="MarkdownV2")
+
+
+
+@bot.message_handler(commands=['ascii2d'])
+def send_ascii2d(message):
+    bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+    bot.register_next_step_handler(message, get_ascii2d)
+
+def get_ascii2d(message):
+    print(message)
+    if message.text=="/cancel":
+        bot.send_message(chat_id=message.chat.id, text="已退出搜图模式", parse_mode="MarkdownV2")
+        return
+    if message.content_type!="photo":
+        bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+
+        bot.register_next_step_handler(message, get_ascii2d)
+        return
+    else:
+        url = bot.get_file_url(message.photo[-1].file_id)
+        print(url)
+        ascii2d(url, message.chat.id)
+        bot.send_message(chat_id=message.chat.id, text="搜索完成", parse_mode="MarkdownV2")
+
+@bot.message_handler(commands=['anime'])
+def send_anime(message):
+    bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+    bot.register_next_step_handler(message, get_anime)
+
+def get_anime(message):
+    print(message)
+    if message.text=="/cancel":
+        bot.send_message(chat_id=message.chat.id, text="已退出搜图模式", parse_mode="MarkdownV2")
+        return
+    if message.content_type!="photo":
+        bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+
+        bot.register_next_step_handler(message, get_ascii2d)
+        return
+    else:
+        url = bot.get_file_url(message.photo[-1].file_id)
+        print(url)
+        anime(url, message.chat.id)
+        bot.send_message(chat_id=message.chat.id, text="搜索完成", parse_mode="MarkdownV2")
+
+@bot.message_handler(commands=['iqdb'])
+def send_iqdb(message):
+    bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+    bot.register_next_step_handler(message, get_iqdb)
+
+def get_iqdb(message):
+    print(message)
+    if message.text=="/cancel":
+        bot.send_message(chat_id=message.chat.id, text="已退出搜图模式", parse_mode="MarkdownV2")
+        return
+    if message.content_type!="photo":
+        bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+
+        bot.register_next_step_handler(message, get_ascii2d)
+        return
+    else:
+        url = bot.get_file_url(message.photo[-1].file_id)
+        print(url)
+        iqdb(url, message.chat.id)
+        bot.send_message(chat_id=message.chat.id, text="搜索完成", parse_mode="MarkdownV2")
+
+
+@bot.message_handler(commands=['all'])
+def send_all(message):
+    bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+    bot.register_next_step_handler(message, get_all)
+
+def get_all(message):
+    print(message)
+    if message.text=="/cancel":
+        bot.send_message(chat_id=message.chat.id, text="已退出搜图模式", parse_mode="MarkdownV2")
+        return
+    if message.content_type!="photo":
+        bot.send_message(chat_id=message.chat.id, text="请发送图片,或输入 /cancel 取消",parse_mode="MarkdownV2")
+
+        bot.register_next_step_handler(message, get_ascii2d)
+        return
+    else:
+        url = bot.get_file_url(message.photo[-1].file_id)
+        print(url)
+        saucenao(url, message.chat.id)
+        ascii2d(url, message.chat.id)
+        anime(url, message.chat.id)
+        iqdb(url, message.chat.id)
+        bot.send_message(chat_id=message.chat.id, text="搜索完成", parse_mode="MarkdownV2")
 
 def saucenao(photo_url,chat_id):
     try:
@@ -155,7 +269,7 @@ def anime(photo_url,chat_id):
 
         r = session.post(url=url, data=data)
         # r = session .get(url=url,headers=Header)
-        bot.send_message(chat_id=chat_id,text="正在搜索trace.moe")
+        bot.send_message(chat_id=chat_id,text="正在搜索 trace.moe")
         information = r.json()
         anilist_id = information['docs'][0]["anilist_id"]
         filename = information['docs'][0]['filename']
@@ -185,7 +299,43 @@ def anime(photo_url,chat_id):
     except:
         print("anime faild")
 
-@bot.message_handler(content_types=['photo'])
+def iqdb(photo_url,chat_id):
+    try:
+        bot.send_message(chat_id=chat_id, text="正在搜索 iqdb", parse_mode="MarkdownV2")
+        url = "http://iqdb.org/"
+        # url = "https://saucenao.com"
+        photo_file = requests.get(photo_url)
+        files = {"file": (
+            "iqdb.jpg", photo_file.content, "image/png")}
+        # files = {"file": "file": ('saber.jpg', open("saber.jpg", "rb", , "image/png")}
+
+        r = requests.post(url=url, files=files)
+        #print(r.text)
+        soup = BeautifulSoup(r.text, 'html.parser')
+        a=1
+        for img in soup.find_all('td', attrs={'class': 'image'}):  # 找到class="wrap"的div里面的所有<img>标签
+            #print(img)
+            if a==7:
+                break
+            try:
+                #print(img.a.get('href'))
+                img_html=img.a.get('href')
+                if "http:" not in img_html and "https:" not in img_html:
+
+                    img_html="https:"+img_html
+
+                img_url="http://iqdb.org"+img.img.get('src')
+
+                text=f"[图片详情]({img_html})"
+                photo_file = session.get(img_url)
+                bot.send_photo(chat_id=chat_id, photo=photo_file.content, parse_mode='Markdown', caption=text)
+                a=a+1
+            except:
+                None
+    except:
+        None
+
+'''@bot.message_handler(content_types=['photo'])
 def get_photo(message):
     #print(message)
     #print(message.photo[-1].file_id)
@@ -194,7 +344,11 @@ def get_photo(message):
     print(url)
     saucenao(url,message.chat.id)
     ascii2d(url, message.chat.id)
-    anime(url, message.chat.id)
+    anime(url, message.chat.id)'''
+
+
+
+
 
 if __name__ == '__main__':
 
