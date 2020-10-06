@@ -26,6 +26,18 @@
 
 
 
+Botfather命令设置
+
+```
+iqdb-在iqdb搜索
+ascii2d-在ascii2d搜索
+anime-番剧截图搜索
+saucenao-在saucenao搜索，pixiv，本子
+all-搜索全部选项
+```
+
+
+
 项目灵感:[CQ-picfinder-robot](https://github.com/Tsuk1ko/CQ-picfinder-robot)
 
 感谢：[TelegramBot](https://github.com/akashin/TelegramBot)
