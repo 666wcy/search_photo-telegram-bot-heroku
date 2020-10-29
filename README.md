@@ -34,6 +34,9 @@ ascii2d-在ascii2d搜索
 anime-番剧截图搜索
 saucenao-在saucenao搜索，pixiv，本子
 all-搜索全部选项
+week-pixiv周榜
+day-pixiv日榜
+month-pixiv月榜
 ```
 
 
