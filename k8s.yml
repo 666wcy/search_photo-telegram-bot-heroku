@@ -15,7 +15,7 @@ spec:
       containers:
       - image: benchao/search-photo:1.0
         name: search
-	env:       
-	- name: token   
-	value: $TELEGRAM_TOKEN
+    env:       
+      - name: token   
+        value: $TELEGRAM_TOKEN
 ---
