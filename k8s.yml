@@ -13,8 +13,8 @@ spec:
         app: search
     spec:
       containers:
-      - image: okteto/hello-world:python
-        name: hello-world
+      - image: benchao/search-photo:1.0
+        name: search
 
 ---
 
