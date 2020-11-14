@@ -16,6 +16,9 @@ spec:
       - image: benchao/search-photo:1.0
         name: search
         #command: ['python'] #启动容器的运行命令，将覆盖容器中的Entrypoint,对应Dockefile中的ENTRYPOINT  
-        args: ["python bot.py $(token)"] #启动容器的命令参数，对应Dockerfile中CMD参数
+        #args: ["python bot.py $(token)"] #启动容器的命令参数，对应Dockerfile中CMD参数
+        env: #指定容器中的环境变量   
+        - name: str #变量的名字
+        value: "/etc/run.sh" #变量的值
 
 
