@@ -15,6 +15,3 @@ spec:
       containers:
       - image: benchao/search-photo:1.0
         name: search
-    env:       #容器运行前需设置的环境变量列表
-    - name: toekn     #环境变量名称
-      value: $TELEGRAM_TOKEN    #环境变量的值
