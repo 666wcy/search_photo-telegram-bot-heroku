@@ -22,6 +22,10 @@
 
 
 
+[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy?repository=https://github.com/okteto/python-getting-started)
+
+
+
 安装教程：[搜图机器人](http://weinb.top/index.php/2020/06/09/photo/)
 
 
