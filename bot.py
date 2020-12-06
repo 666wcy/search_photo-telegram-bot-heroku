@@ -13,7 +13,7 @@ import os
 
 # Example of your code beginning
 #           Config vars
-token = os.environ['TOKEN']
+token = os.environ['TELEGRAM_TOKEN']
 
 session = requests.session()
 bot = telebot.TeleBot(token)
