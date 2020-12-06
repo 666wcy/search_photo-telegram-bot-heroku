@@ -22,10 +22,6 @@
 
 
 
-[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy?repository=https://github.com/666wcy/seach_photo-telegram-bot-heroku)
-
-
-
 安装教程：[搜图机器人](http://weinb.top/index.php/2020/06/09/photo/)
 
 
