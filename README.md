@@ -24,6 +24,18 @@
 
 安装教程：[搜图机器人](http://weinb.top/index.php/2020/06/09/photo/)
 
+docker版
+
+```
+docker run  --name search -d \
+-e TELEGRAM_TOKEN=你机器人的API \
+--restart=always \
+benchao/search-photo:1.1
+
+```
+
+
+
 
 
 Botfather命令设置
