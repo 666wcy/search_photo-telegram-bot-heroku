@@ -10,7 +10,7 @@ six==1.15.0
 soupsieve==2.0.1
 Flask==1.0.2
 Flask-Compress==1.4.0
-Flask-Cors==3.0.2
+Flask-Cors==3.0.9
 Flask-Login==0.4.0
 Flask-RESTful==0.3.6
 flask-restx==0.2.0
