@@ -1,6 +1,6 @@
 beautifulsoup4==4.9.1
 bs4==0.0.1
-certifi==2020.4.5.2
+certifi==2022.12.7
 chardet==3.0.4
 idna==2.9
 pyTelegramBotAPI==3.7.1
